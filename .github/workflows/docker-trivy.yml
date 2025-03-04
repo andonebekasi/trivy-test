@@ -1,4 +1,4 @@
-name: Docker Build and Trivy Scan
+name: Docker Build, Trivy Scan, and Push to Docker Hub
 
 on:
   push:
@@ -27,7 +27,7 @@ jobs:
       - name: Install Trivy
         run: |
           curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh
-          sudo mv trivy /usr/local/bin/
+          sudo mv ./bin/trivy /usr/local/bin/
 
       - name: Run Trivy Scan
         run: |
